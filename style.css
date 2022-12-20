@@ -32,7 +32,7 @@ body {
   background-color: #f2f2f2;
 
   gap: 16px;
-  border-radius: 15px;
+  border-radius: 54px;
 }
 
 .button {
@@ -44,15 +44,9 @@ body {
   background: linear-gradient(to bottom, #f2f2f2, #e6e6e6);
 }
 
-.button:hover,
 .button:active {
   box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.2),
     inset 0 6px 6px rgba(0, 0, 0, 0.2);
-}
-
-.button:focus {
-  box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.2),
-    inset 6px 6px rgba(0, 0, 0, 0.2);
   outline: none;
 }
 
@@ -62,12 +56,11 @@ body {
   flex-direction: column;
   box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.1),
     inset 0 6px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  border-radius: 34px;
 }
 
 .display__history,
 .display__value {
-  color: #424242;
   flex-basis: 50%;
   display: flex;
   align-items: center;
