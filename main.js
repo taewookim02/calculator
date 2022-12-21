@@ -13,6 +13,9 @@
 // create HTML for "Equals" key
 // a "clear" button
 
+// TODO:
+// add javascript
+
 const buttons = document.querySelector(".buttons");
 // logic
 // deploy
