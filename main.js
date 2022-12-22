@@ -1,49 +1,15 @@
-const buttons = document.querySelector(".buttons");
-const buttonNodeList = document.querySelectorAll(".button");
-const displayValue = document.querySelector(".display__value");
-
-function displayValueToView(value) {
-  displayValue.textContent = value;
+function add(a, b) {
+  return +a + +b;
 }
 
-let tempString = "";
-let firstOperand = "";
-let secondOperand = "";
-let operator = "";
-
-function handleButtonClick(valueDataset) {
-  console.log(valueDataset);
-  if (valueDataset.type === "number") {
-    tempString += valueDataset.value;
-    displayValueToView(tempString);
-  }
-  if (valueDataset.type === "function") {
-    // tempString to operand and reset string
-    if (!firstOperand) {
-      firstOperand = tempString;
-      tempString = "";
-    }
-
-    if (firstOperand) {
-      secondOperand = tempString;
-    }
-
-    // plus
-    if (firstOperand && secondOperand) {
-      const result = +firstOperand + +secondOperand;
-      displayValueToView(result);
-      tempString = "";
-      firstOperand = "";
-      secondOperand = "";
-    }
-  }
+function subtract(a, b) {
+  return +a - +b;
 }
 
-// Attach all the functions to the buttons
-buttonNodeList.forEach((button) => {
-  addEventListener("click", (e) => {
-    if (e.target === button) {
-      handleButtonClick(e.target.dataset);
-    }
-  });
-});
+function multiply(a, b) {
+  return +a * +b;
+}
+
+function divide(a, b) {
+  return +a / +b;
+}
