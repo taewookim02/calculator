@@ -3,6 +3,8 @@ let secondNumber = "";
 let operator = "";
 let result = "";
 let isResultAvailable = false;
+let count = 0;
+
 const numberButtons = document.querySelectorAll("[data-number]");
 const operatorButtons = document.querySelectorAll("[data-operator]");
 const displayValueContainer = document.querySelector(".display__value");
@@ -10,6 +12,9 @@ const displayHistoryContainer = document.querySelector(".display__history");
 const equalsButton = document.querySelector(".button__equals");
 const clearButton = document.querySelector(".button__clear");
 const deleteButton = document.querySelector(".button__delete");
+
+// TODO: KeyboardEvent;
+// TODO: don't let user to input more than . decimal places
 
 function add(a, b) {
   return +a + +b;
@@ -25,7 +30,7 @@ function multiply(a, b) {
 
 function divide(a, b) {
   if (a === 0 || b === 0) {
-    return alert("Dividing by zero ey? :D");
+    return alert("You cannot divide by 0!");
   }
   return +a / +b;
 }
@@ -63,16 +68,19 @@ function formatDecimals(number) {
 // this will populate display
 function numberButtonHandler(number) {
   if (result) {
+    if (number === "." && secondNumber.includes(".")) return;
     // append number to secondNumber
     secondNumber += number;
     updateHistory(result);
     isResultAvailable = false;
     displayValueContainer.textContent = secondNumber;
   } else if (operator === "") {
+    if (number === "." && firstNumber.includes(".")) return;
     // if there is no operator update firstNumber
     firstNumber += number;
     displayValueContainer.textContent = firstNumber;
   } else if (operator) {
+    if (number === "." && secondNumber.includes(".")) return;
     // if there is already an operator update secondNumber
     secondNumber += number;
     displayValueContainer.textContent = secondNumber;
