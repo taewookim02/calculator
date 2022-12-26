@@ -12,6 +12,7 @@ const displayHistoryContainer = document.querySelector(".display__history");
 const equalsButton = document.querySelector(".button__equals");
 const clearButton = document.querySelector(".button__clear");
 const deleteButton = document.querySelector(".button__delete");
+const fontSizes = [64, 48, 32, 24, 16];
 
 // TODO: KeyboardEvent;
 
@@ -149,10 +150,29 @@ function updateClearButtonTextContent() {
   }
 }
 
+function adjustFontSize() {
+  // get the current value being displayed
+  const value = displayValueContainer.textContent;
+  if (value.length > 22) {
+    // apply the smallest font size
+    displayValueContainer.style.fontSize = `${fontSizes[4]}px`;
+  } else if (value.length > 17) {
+    displayValueContainer.style.fontSize = `${fontSizes[3]}px`;
+  } else if (value.length > 11) {
+    displayValueContainer.style.fontSize = `${fontSizes[2]}px`;
+  } else if (value.length > 8) {
+    displayValueContainer.style.fontSize = `${fontSizes[1]}px`;
+  } else {
+    // apply the largest font size
+    displayValueContainer.style.fontSize = `${fontSizes[0]}px`;
+  }
+}
+
 numberButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
     numberButtonHandler(e.target.textContent);
     updateClearButtonTextContent();
+    adjustFontSize();
   });
 });
 
@@ -160,12 +180,14 @@ operatorButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
     operatorButtonHandler(e.target.textContent);
     updateClearButtonTextContent();
+    adjustFontSize();
   });
 });
 
 equalsButton.addEventListener("click", (e) => {
   equalsButtonHandler();
   updateClearButtonTextContent();
+  adjustFontSize();
 });
 
 clearButton.addEventListener("click", (e) => {
@@ -179,6 +201,7 @@ clearButton.addEventListener("click", (e) => {
 
 deleteButton.addEventListener("click", (e) => {
   deleteButtonHandler();
+  adjustFontSize();
 });
 
 document.addEventListener("keydown", (e) => {
@@ -186,6 +209,7 @@ document.addEventListener("keydown", (e) => {
   if ((e.key >= "0" && e.key <= "9") || e.key === ".") {
     numberButtonHandler(e.key);
     updateClearButtonTextContent();
+    adjustFontSize();
   }
 
   // operators and functions
@@ -207,12 +231,15 @@ document.addEventListener("keydown", (e) => {
       break;
     case "Enter":
       equalsButtonHandler();
+      adjustFontSize();
       break;
     case "=":
       equalsButtonHandler();
+      adjustFontSize();
       break;
     case "Backspace":
       deleteButtonHandler();
+      adjustFontSize();
       break;
     case "c":
       if (clearButton.textContent === "C") {
@@ -221,6 +248,7 @@ document.addEventListener("keydown", (e) => {
         clearAllValues();
       }
       updateClearButtonTextContent();
+      adjustFontSize();
       break;
   }
 });

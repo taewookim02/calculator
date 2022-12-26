@@ -94,3 +94,19 @@ body {
 .button--long {
   grid-column: 1 / span 2;
 }
+
+@media (min-width: 30ch) {
+  .display__value {
+    font-size: 12px;
+  }
+}
+@media (min-width: 20ch) {
+  .display__value {
+    font-size: 48px;
+  }
+}
+@media (min-width: 8ch) {
+  .display__value {
+    font-size: 64px;
+  }
+}
