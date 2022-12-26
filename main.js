@@ -208,6 +208,9 @@ document.addEventListener("keydown", (e) => {
     case "Enter":
       equalsButtonHandler();
       break;
+    case "=":
+      equalsButtonHandler();
+      break;
     case "Backspace":
       deleteButtonHandler();
       break;
