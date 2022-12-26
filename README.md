@@ -28,11 +28,11 @@ The calculator also supports keyboard input. You can use the numeric keys (0-9) 
 
 ## Decimals
 
-To input decimals, use the . button. Note that you can only input one decimal per number.
+To input decimals, use the `.` button. Note that you can only input one decimal per number.
 
 ## Styling
 
-The calculator app uses basic CSS styling to provide a clean and simple interface. The display container will automatically adjust its font size when a large number is inputted to ensure that the numbers are always visible.
+The calculator app uses basic CSS styling to provide a clean and simple interface.
 
 ## Limitations
 
