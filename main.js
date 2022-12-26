@@ -183,10 +183,12 @@ deleteButton.addEventListener("click", (e) => {
 
 document.addEventListener("keydown", (e) => {
   // numbers
-  if (e.key >= "0" && e.key <= "9") {
+  if ((e.key >= "0" && e.key <= "9") || e.key === ".") {
     numberButtonHandler(e.key);
     updateClearButtonTextContent();
   }
+
+  // operators and functions
   switch (e.key) {
     case "+":
       operatorButtonHandler("+");
