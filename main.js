@@ -14,7 +14,6 @@ const clearButton = document.querySelector(".button__clear");
 const deleteButton = document.querySelector(".button__delete");
 
 // TODO: KeyboardEvent;
-// TODO: don't let user to input more than . decimal places
 
 function add(a, b) {
   return +a + +b;
@@ -180,4 +179,43 @@ clearButton.addEventListener("click", (e) => {
 
 deleteButton.addEventListener("click", (e) => {
   deleteButtonHandler();
+});
+
+document.addEventListener("keydown", (e) => {
+  // numbers
+  if (e.key >= "0" && e.key <= "9") {
+    numberButtonHandler(e.key);
+    updateClearButtonTextContent();
+  }
+  switch (e.key) {
+    case "+":
+      operatorButtonHandler("+");
+      break;
+    case "-":
+      operatorButtonHandler("−");
+      break;
+    case "*":
+      operatorButtonHandler("×");
+      break;
+    case "/":
+      operatorButtonHandler("÷");
+      break;
+    case "%":
+      operatorButtonHandler("%");
+      break;
+    case "Enter":
+      equalsButtonHandler();
+      break;
+    case "Backspace":
+      deleteButtonHandler();
+      break;
+    case "c":
+      if (clearButton.textContent === "C") {
+        clearCurrentValues();
+      } else {
+        clearAllValues();
+      }
+      updateClearButtonTextContent();
+      break;
+  }
 });
