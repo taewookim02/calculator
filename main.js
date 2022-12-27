@@ -250,5 +250,14 @@ document.addEventListener("keydown", (e) => {
       updateClearButtonTextContent();
       adjustFontSize();
       break;
+    case "C":
+      if (clearButton.textContent === "C") {
+        clearCurrentValues();
+      } else {
+        clearAllValues();
+      }
+      updateClearButtonTextContent();
+      adjustFontSize();
+      break;
   }
 });
