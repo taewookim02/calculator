@@ -23,7 +23,8 @@ The calculator also supports keyboard input. You can use the numeric keys (0-9) 
 - `*`: multiplication
 - `/`: division
 - `%`: modulo
-- `=` or Enter: equals
+- `=` or `Enter`: equals
+- `c` or `C`: clear/all-clear
 - `Backspace`: delete
 
 ## Decimals
